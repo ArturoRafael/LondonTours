@@ -1,0 +1,35 @@
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+Options -Indexes
+IndexIgnore *.php *.css *.js
+
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^www.londontour.000webhostapp.com [NC] 
+RewriteRule ^(.*)$ https://londontour.000webhostapp.com/$1 [L,R=301]
+
+ErrorDocument 403 https://londontour.000webhostapp.com
+ErrorDocument 404 https://londontour.000webhostapp.com
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([a-z]+)\/?$ $1.php [NC]
+
+
+RewriteRule ^details_tours/([0-9]+)/(.*)/?$ details_tours.php?tour=$1&name=$2 [L,NC]
+RewriteRule ^details_cart/?$ details_cart.php [L,NC]
+RewriteRule ^details_cart/(.*)/?$ details_cart.php?id_tour=$1 [L,NC]
+
+RewriteRule ^tours/(.*)/?$ tours.php?search=$1 [L,NC]
+
+RewriteRule ^reservations/?$ reservations.php [L,NC]
+
+
+
+
+</IfModule>
