@@ -118,7 +118,7 @@ jQuery(document).ready(function($){
             success: function(data) {
             	if(data == "ok"){
                    $("#signupform")[0].reset();
-                   setTimeout('document.location.reload()',5000);
+                   setTimeout('document.location.reload()',1000);
                 }else if(data == "nokk"){
                 	alert('Unregistered user');
                 	$("#signupform")[0].reset(); 
@@ -154,7 +154,7 @@ jQuery(document).ready(function($){
                 success: function(data) {                	
                     if(data == "ok"){
                        alert('Successfully registered user');
-                       setTimeout('document.location.reload()',5000);
+                       setTimeout('document.location.reload()',1000);
                     }else{                    	
                         $button_form.val('Create Account');
                         document.getElementById("form-registre").disabled = false;
