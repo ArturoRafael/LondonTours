@@ -32,11 +32,7 @@ if($_POST){
     
     $calle = filter_var($_POST["signup-road"], FILTER_SANITIZE_STRING);
     
-    $telf = filter_var($_POST["signup-telf"], FILTER_SANITIZE_STRING);
-    if (!preg_match('\d{3})-\d{3}-\d{4}/', $telf)){
-        echo "Enter a valid phone.";
-        exit(0);
-    }
+    $telf = filter_var($_POST["signup-telf"], FILTER_SANITIZE_STRING);    
 
     $pass2 = filter_var($_POST["signup-password-repeat"], FILTER_SANITIZE_STRING);
     $pass = filter_var($_POST["signup-password"], FILTER_SANITIZE_STRING);
